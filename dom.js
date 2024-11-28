@@ -35,3 +35,41 @@ for(let val of num2){
   i++;
   
 }
+
+// for button code
+
+const count = document.getElementById('count');
+const plus = document.getElementById('plus');
+const minus = document.getElementById('minus');
+
+let counter = 0;
+
+const update = (v) =>{
+
+  counter = counter+v;
+  count.innerText = counter;
+
+  if (counter >=10 ) {
+    plus.setAttribute('disabled', true);    
+  } else {
+    plus.removeAttribute('disabled', false);
+  }
+  // minus button
+
+  if (counter <=0 ) {
+    minus.setAttribute('disabled',true);
+  } else {
+    minus.removeAttribute('disabled',false);
+  }
+
+
+}
+
+plus.addEventListener('click', () => {
+  update (1);
+  plus.style.fontSize = '20px';
+});
+
+minus.addEventListener('click', () => {
+  update(-1);
+});
